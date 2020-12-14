@@ -1,0 +1,288 @@
+/*body style*/
+*{
+    margin:0;
+    padding:0;
+}
+body{
+    background-image:url("hintergrund.jpg");
+    background-attachment:fixed;
+    color:black;
+}
+.container{
+    max-width:900px;
+    margin:auto;
+}
+
+/*navigation style*/
+
+.nav ul{
+    list-style-type:none;
+    padding:0;
+    margin:0;
+    color:#000080;
+    font-weight:bold;
+}
+.nav li{
+    display:block;
+    border-right:solid 1px #000080;
+    border-bottom:solid 1px #000080;
+    background-color:rgba(216,232,242,0.8); 
+    float:left;
+    position:relative;
+    padding:7px 15px;
+}
+.nav li:first-child{
+    border-left:solid 1px #000080;
+}
+.nav a{
+    text-decoration:none;
+    color:#000080;
+}
+.nav ul li ul{
+    display:none;
+    position:absolute;
+    left:-1px;
+    margin-top:7px;
+    box-shadow:10px 10px 30px rgba(216,232,242,1), -10px 10px 30px rgba(216,232,242,1);
+}
+.nav ul li ul li{
+    clear:both;
+    width:100%;
+    border-right:solid 1px #000080;
+    border-bottom:solid 1px #000080;
+    background-color:rgba(216,232,242,1);
+}
+.nav ul li ul li{
+    border-left:solid 1px #000080;
+    padding:7px;
+}
+.nav ul li ul li:last-child{
+    border-radius:0px 0px 5px 5px;
+}
+.nav ul li:hover > ul, .nav ul li ul:hover{
+    display:block;
+}
+
+/*Header style*/
+.header{
+    background-color:rgba(78,127,191,0.8);
+    border:solid 1px #000080;
+    border-bottom:solid 1px #000080;
+    display:flex;
+    align-items:flex-start;
+    padding:2%;
+    color:white;
+    text-shadow:2px 2px 3px #404040;
+}
+#logo{
+    border-radius:50%;
+    max-width:50%;
+    height:auto;
+    float:left;
+    padding:1%;
+}
+.header h1, .header h2{
+    padding:2%;
+    text-align:center;
+    
+}
+.header h1{
+    width:max-content;
+}
+
+/*footer style*/
+.footer{
+    background-color:rgba(78,127,191,0.8);
+    padding:2%;
+    color:#D8E8F2;
+    display:flex;
+}
+.footerKontakt{
+    width:60%;
+}
+/*Main content style*/
+.mainContent{
+    background-color:rgba(216,232,242,0.4);
+    padding:3% 2%;
+    margin:0;
+    clear:left;
+}
+.imgLeft, .imgRight{
+    max-width:100%;
+    height:auto;
+    margin-bottom:1%;
+}
+.imgLeft{
+    float:left;
+    margin-right:1%;
+}
+.imgRight{
+    float:right;
+    margin-left:1%;
+}
+.boldContent{
+    font-weight:bold;
+}
+.contentWithBorder{
+    border:solid 1px #000080;
+    padding:1%;
+    margin:1%;
+}
+.italicContent{
+    font-style:italic;
+    padding:1%;
+    margin:1%;
+}
+ul.content{
+    margin-left:0;
+    padding-left:2%;
+}
+.mainContent h1, .mainContent h2, .mainContent h3, .mainContent h4, .mainContent h5, .mainContent h6{
+    color:#000080;
+}
+.content{
+    padding-bottom:1%;
+}
+.right{
+    float:right;
+}
+.left{
+    float:left;
+}
+.mainContent a:link, .footer a:link{
+    color:#000080;
+}
+.hidden{
+    display:none;
+}
+/*button styles*/
+.ctabutton, .ctabutton_second{
+    border-radius:15px;
+    padding:10px;
+    box-shadow:5px 5px 10px #333333;
+    font-weight:bold;
+    margin:2%;
+    display:inline-block;
+    cursor:pointer;
+}
+.ctabutton{
+    background-color:#D9C0A3;
+    color:#402D22;
+    border:solid 1px #402D22;
+}
+.ctabutton a, .ctabutton_second a{
+    text-decoration:none;
+    display:inline-block;
+}
+.ctabutton a{
+    color:#402D22;
+}
+.ctabutton_second{
+    background-color:#D8E8F2;
+    color:#000080;
+    border:solid 1px #000080;
+}
+.ctabutton_second a{
+    color:#000080;
+}
+/*Specialized content style*/
+#yogaAngebot, #kontakt{
+    display:flex;
+    flex-wrap:nowrap;
+    overflow:auto;
+}
+/*style for the Veroeffentlichungen and Uebersetzungen pages*/
+.booklist{
+    padding-bottom:1.5%;
+}
+.bookcontainer{
+    display:flex;
+    padding-bottom:1%;
+}
+.bookimg{
+    padding-right:1%;
+    max-height:150px;
+}
+/*Removing bold text from the booklist at client request*/
+.booklist b{
+    font-weight:400;
+}
+/*style for slideshow*/
+.slideshowContainer{
+    width:100%;
+    position:relative;
+    overflow:hidden;
+}
+.slideshowFigure{
+    margin:auto;
+    width:85%;
+    display:none;
+}
+.slideshowFigure{
+    text-align:center;
+}
+.slideshowImg{
+    max-width:100%;
+    margin:2% auto;
+}
+.PrevButton, .NextButton{
+    background-color:transparent;
+    font-weight:bold;
+    font-size:30px;
+    border:none;
+    cursor:pointer;
+    padding:1%;
+}
+.PrevButton{
+    position:absolute;
+    top:50%;
+    left:3%;
+}
+.NextButton{
+    position:absolute;
+    top:50%;
+    right:3%;
+}
+.activeFigure{
+    display:block;
+    margin:auto;
+    animation:fade 0.8s linear normal 1 none running;
+}
+@keyframes fade {
+    0% {
+        opacity:0;
+    }
+    100% {
+        opacity:1;
+    }
+}
+/*style for full page contact form*/
+.kontaktform input[type=text], .kontaktform input[type=email], .kontaktform input[type=tel], .kontaktform textarea{
+    width:90%;
+}
+/*style for footer Newsletter form*/
+.newsletterAbo input[type=email]{
+    width:35%;
+}
+/*general style for forms*/
+input, textarea{
+    padding:5px;
+    border-radius:5px;
+    background-color:rgb(216,232,242);
+    border:solid 1px #000080;
+    box-shadow:4px 4px 8px #777777;
+}
+textarea{
+    min-height:100px;
+}
+input:focus, textarea:focus{
+    border:solid 3px #000080;
+}
+label{
+    margin:5px 0px;
+    color:#000080;
+}
+.anmerkung{
+    color:#444444;
+    font-style:italic;
+}
