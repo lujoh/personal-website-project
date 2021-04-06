@@ -2,7 +2,7 @@
 
 ## UPDATE
 
-The website is now LIVE! You can see it at [Christian Hackbarth-Johnson] (https://hackbarth-johnson.de/)
+The website is now LIVE! You can see it at [Christian Hackbarth-Johnson](https://hackbarth-johnson.de/)
 
 ## Description
 
