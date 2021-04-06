@@ -2,25 +2,31 @@
 *{
     margin:0;
     padding:0;
+    font-family: Helvetica, Verdana, Arial, sans-serif; 
+    box-sizing: border-box;
 }
 body{
-    background-image:url("hintergrund.jpg");
-    background-attachment:fixed;
+/*    background-image:url("hintergrund.jpg");*/
+/*    background-attachment:fixed;*/
+    background-color:rgba(216,232,242,1);
     color:black;
 }
 .container{
     max-width:900px;
     margin:auto;
+    position:relative;
 }
 
 /*navigation style*/
-
 .nav ul{
     list-style-type:none;
     padding:0;
     margin:0;
     color:#000080;
     font-weight:bold;
+}
+.nav a, .nav button{
+    font-size:1rem;
 }
 .nav li{
     display:block;
@@ -37,6 +43,14 @@ body{
 .nav a{
     text-decoration:none;
     color:#000080;
+    display:block;
+}
+.nav button{
+    text-decoration:none;
+    color:#000080;
+    border:none;
+    background-color:transparent;
+    font-weight:bold;
 }
 .nav ul li ul{
     display:none;
@@ -59,8 +73,17 @@ body{
 .nav ul li ul li:last-child{
     border-radius:0px 0px 5px 5px;
 }
-.nav ul li:hover > ul, .nav ul li ul:hover{
+.nav ul li:hover > ul, .nav ul li ul:hover, .nav ul li:focus > ul, .nav ul li ul:focus{
     display:block;
+}
+.nav ul li ul.open{
+    display:block;
+}
+.dropdown{
+    z-index:1;
+}
+.menubutton{
+    display:none;
 }
 
 /*Header style*/
@@ -79,7 +102,7 @@ body{
     max-width:50%;
     height:auto;
     float:left;
-    padding:1%;
+    margin:1%;
 }
 .header h1, .header h2{
     padding:2%;
@@ -92,20 +115,29 @@ body{
 
 /*footer style*/
 .footer{
-    background-color:rgba(78,127,191,0.8);
+    background-color:rgba(78,127,191,0.9);
     padding:2%;
-    color:#D8E8F2;
+    color:#ecf4f9;
     display:flex;
 }
 .footerKontakt{
     width:60%;
+    margin-right:8px;
 }
 /*Main content style*/
 .mainContent{
     background-color:rgba(216,232,242,0.4);
     padding:3% 2%;
     margin:0;
-    clear:left;
+    clear:both;
+}
+.mainContent:after, .mainContent:before {
+  content: "";
+  display: table;
+  clear: both;
+}
+p{
+    text-align:justify;
 }
 .imgLeft, .imgRight{
     max-width:100%;
@@ -160,7 +192,7 @@ ul.content{
     border-radius:15px;
     padding:10px;
     box-shadow:5px 5px 10px #333333;
-    font-weight:bold;
+    font-weight:600;
     margin:2%;
     display:inline-block;
     cursor:pointer;
@@ -206,6 +238,20 @@ ul.content{
 /*Removing bold text from the booklist at client request*/
 .booklist b{
     font-weight:400;
+}
+/*style for events*/
+.event_container{
+    display:flex;
+}
+.event_container p{
+    text-align:left;
+}
+.event_datum{
+    margin-right:2%;
+    font-weight:525;
+}
+.event_name{
+    font-weight:bold;
 }
 /*style for slideshow*/
 .slideshowContainer{
@@ -264,6 +310,9 @@ ul.content{
 .newsletterAbo input[type=email]{
     width:35%;
 }
+.newsletterAbo{
+    margin-right:2%;
+}
 /*general style for forms*/
 input, textarea{
     padding:5px;
@@ -286,3 +335,147 @@ label{
     color:#444444;
     font-style:italic;
 }
+/*hidden areas for honeypot*/
+input[type=url], .required, #Vorname{
+    display:none;
+}
+
+/*
+--------
+styles for different screen sizes
+--------
+*/
+/*styles for touchscreens and small screens. Important for navigation*/
+@media (max-width:1200px), (hover:none){
+    .menubutton{
+        display:block;
+        background-color:rgba(216,232,242,1);
+        color:#000080;
+        border:solid 1px #000080;
+        font-size:180%;
+        font-weight:900;
+        padding:2% 3%;
+        cursor:pointer;
+    }
+    #nav{
+        display:none;
+    }
+    #nav ul{
+        max-width:450px;
+        position:absolute;
+        left:0px;
+    }
+    #nav>ul>li>a{
+        cursor:default;
+    }
+    #nav>ul>li:first-child{
+        border:solid #000080;
+        border-width:0 1px 1px 5px;
+    }
+    #nav>ul>li:first-child a{
+        cursor:pointer;
+    }
+    #nav li{
+        float:none;
+        border-bottom:none;
+        background-color:rgba(216,232,242,1); 
+    }
+    #nav ul li ul{
+        display:block;
+        position:relative;
+        box-shadow:none;
+    }
+    #nav ul li ul li:last-child{
+        border-bottom:none;
+        border-radius:0px;
+    }
+    #nav ul li ul li{
+        border-right:none;
+    }
+    #nav.open{
+        display:block;
+    }
+    #nav a{
+        padding-top:10px;
+    }
+    .submenu{
+        display:none;
+    }
+    
+    #links p{
+        margin-bottom:3%;
+    }
+}/*first media query closing tag*/
+/*styles for tablet sized devices in landscape mode and small laptops*/
+@media (max-width:1200px){
+    .container{
+        max-width:none;
+        width:100%;
+    } 
+    .header div{
+        margin-right:4%;
+    }
+    /*slideshow styles*/
+    .PrevButton, .NextButton{
+        font-size:40px;
+    }
+    .slideshowImg{
+        max-height:600px;
+    }
+    /*other image sizing*/
+    img:not(.slideshowImg){
+        max-width:500px;
+    }
+}/*second media query closing tag*/
+/*styles for small tablets in portrait mode and large cellphones*/
+@media (max-width:700px){
+    .header h1{
+        width:auto;
+    }
+    .imgLeft, .imgRight{
+        float:none;
+    }
+    img:not(.slideshowImg){
+        max-width:98%;
+    }
+    #yogaAngebot, #kontakt{
+    display:block;
+}
+    .footer{
+        display:block;
+    }
+    .footerKontakt{
+        width:100%;
+        margin-bottom:4%;
+    }
+    /*slideshow smaller styles*/
+    .slideshowFigure{
+        width:100%;
+    }
+    .PrevButton, .NextButton{
+        color:rgb(216,232,242);
+        background-color:rgba(64, 64, 64, 0.6);
+    }
+}
+/*styles for small screens and phones*/
+@media (max-width:500px){
+    .header{
+        flex-direction:column;
+        align-items:center;
+    }
+    .logoContainer{
+        text-align:center;
+    }
+    #logo{
+        float:none;
+    }
+    .slideshowImg{
+        max-height:450px;
+    }
+}
+@media (max-height:600px){
+    .slideshowImg{
+        max-height:95vh;
+    }
+}
+
