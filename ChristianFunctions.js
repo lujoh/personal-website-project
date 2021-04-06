@@ -37,3 +37,21 @@ function switchImage(x) {
     cycleIndex();
     changeClass(active, index);
 }
+
+
+function toggleMenu(button, menuID) {
+    var n = document.getElementById(menuID);
+    var menuclass;
+    if (menuID == "nav"){
+        menuclass = menuID;
+    } else {
+        menuclass = "dropdown";
+    }
+    if (n.className == menuclass) {
+        n.className += " open";
+        button.setAttribute("aria-expanded", "true");
+    } else {
+        n.className = menuclass;
+        button.setAttribute("aria-expanded", "false");
+    }
+}
